@@ -145,7 +145,7 @@ Mount-SystemImage
 Write-Host "Installing Components..."
 Install-SystemUpdates
 Install-SystemDrivers
-Install-SystemPackages
+#Install-SystemPackages
 
 Write-Host "Configuring System..."
 Set-SystemConfiguration
