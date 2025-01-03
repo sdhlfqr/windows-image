@@ -75,6 +75,8 @@ function Install-SystemUpdates {
 }
 
 function Install-SystemDrivers {
+    if (-not (Test-Path "$DriversPath")) { return }
+
 	Write-Host "Installing Drivers"
 	Add-WindowsDriver -Path $MountPath -Driver $DriversPath -Recurse | Out-Null
 }
