@@ -55,17 +55,23 @@ function Mount-SystemImage {
 }
 
 function Install-SystemUpdates {
-    Write-Host "Installing Servicing Stack Update"
-    Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\SSU" | Out-Null
-    
-    Write-Host "Installing Latest Cumulative Update"
-    $ErrorActionPreference = "SilentlyContinue"
-    Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\LCU" | Out-Null
-    $ErrorActionPreference = "Stop"
-    Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\LCU" | Out-Null
-    
-    Write-Host "Installing Miscs Updates"
-    Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\Miscs" | Out-Null 
+    if (Test-Path "$UpdatesPath\SSU") {
+        Write-Host "Installing Servicing Stack Update"
+        Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\SSU" | Out-Null
+    }
+
+    if (Test-Path "$UpdatesPath\LCU") {
+        Write-Host "Installing Latest Cumulative Update"
+        $ErrorActionPreference = "SilentlyContinue"
+        Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\LCU" | Out-Null
+        $ErrorActionPreference = "Stop"
+        Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\LCU" | Out-Null
+    }
+
+    if (Test-Path "$UpdatesPath\Miscs") {
+        Write-Host "Installing Miscs Updates"
+        Add-WindowsPackage -Path $MountPath -PackagePath "$UpdatesPath\Miscs" | Out-Null
+    }
 }
 
 function Install-SystemDrivers {
