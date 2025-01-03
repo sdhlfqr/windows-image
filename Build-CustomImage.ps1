@@ -121,10 +121,7 @@ function Set-SystemConfiguration {
 function Set-SystemAnswerFile {
     Write-Host "Apply Answer File"
 
-    if (-not (Test-Path $AnswerFile)) {
-        Write-Host "$AnswerFile does not exist" -ForegroundColor "Yellow"
-        return
-    }
+    if (-not (Test-Path $AnswerFile)) { return }
 
     (-not (Test-Path "$MountPath\Windows\Panther")) -or (Remove-Item -Path "$MountPath\Windows\Panther" -Force -Recurse)  > $null | Out-Null
 	New-Item "$MountPath\Windows\Panther" -ItemType Directory | Out-Null
