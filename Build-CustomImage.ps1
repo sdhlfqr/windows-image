@@ -89,30 +89,30 @@ function Install-SystemPackages {
 }
 
 function Set-SystemConfiguration {
-    if (Test-Path "$CongisPath\Disabled-Capabilities.txt") {
+    if (Test-Path "$ConfigsPath\Disabled-Capabilities.txt") {
         Write-Host "Disabilng Capabilities"
-        foreach ($capability in Get-Content "$CongisPath\Disabled-Capabilities.txt") {
+        foreach ($capability in Get-Content "$ConfigsPath\Disabled-Capabilities.txt") {
             Remove-WindowsCapability -Path $MountPath -Name $capability | Out-Null
         }
     }
 
-    if (Test-Path "$CongisPath\Disabled-Features.txt") {
+    if (Test-Path "$ConfigsPath\Disabled-Features.txt") {
         Write-Host "Disabilng Features"
-        foreach ($feature in Get-Content "$CongisPath\Disabled-Features.txt") {
+        foreach ($feature in Get-Content "$ConfigsPath\Disabled-Features.txt") {
             Disable-WindowsOptionalFeature -Path $MountPath -FeatureName $feature | Out-Null
         }
     }
 
-    if (Test-Path "$CongisPath\Enabled-Capabilities.txt") {
+    if (Test-Path "$ConfigsPath\Enabled-Capabilities.txt") {
         Write-Host "Enabling Capabilities"
-        foreach ($capability in Get-Content "$CongisPath\Enabled-Capabilities.txt") {
+        foreach ($capability in Get-Content "$ConfigsPath\Enabled-Capabilities.txt") {
             Add-WindowsCapability -Path $MountPath -Name $capability | Out-Null
         }
     }
     
-    if (Test-Path "$CongisPath\Enabled-Features.txt") {
+    if (Test-Path "$ConfigsPath\Enabled-Features.txt") {
         Write-Host "Enabling Features"
-        foreach ($feature in Get-Content "$CongisPath\Enabled-Features.txt") {
+        foreach ($feature in Get-Content "$ConfigsPath\Enabled-Features.txt") {
             Enable-WindowsOptionalFeature -Path $MountPath -FeatureName $feature | Out-Null
         }
     }
