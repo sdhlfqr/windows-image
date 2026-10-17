@@ -130,7 +130,7 @@ function Set-SystemConfiguration {
         Write-Host "Enabling Features"
         foreach ($feature in (Get-Content "$ConfigsPath\Enabled-Features.txt" | Where-Object { $_.Trim() })) {
             if ($disabledFeatures -contains $feature.Trim()) {
-                Enable-WindowsOptionalFeature -Path $MountPath -FeatureName $feature.Trim() | Out-Null
+                Enable-WindowsOptionalFeature -Path $MountPath -FeatureName $feature.Trim() -All | Out-Null
             }
         }
     }

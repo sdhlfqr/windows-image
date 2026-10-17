@@ -31,7 +31,7 @@
     ```
 8. Download Packages (e.g. WinGet) at [.\Packages](../Packages/):
     - [Microsoft.DesktopAppInstaller_License.xml](https://github.com/microsoft/winget-cli/releases/latest/download/7fdfd40ea2dc40deab85b69983e1d873_License1.xml)
-    - [Microsoft.DesktopAppInstaller.msix](https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle)
+    - [Microsoft.DesktopAppInstaller.msixbundle](https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle)
     - [DesktopAppInstaller_Dependencies](https://github.com/microsoft/winget-cli/releases/latest/download/DesktopAppInstaller_Dependencies.zip)
 9. Get Capabilities list using [Get-WindowsCapability](https://learn.microsoft.com/en-us/powershell/module/dism/get-windowscapability?view=windowsserver2025-ps):
     ```powershell
