@@ -37,7 +37,7 @@
     ```powershell
     Get-WindowsCapability -Path C:\Mount
     ```
-    - Fill [.\Configs\enabled-capacities.txt](../Configs/enabled-capacities.txt) and [.\Configs\disabled-capacities.txt](../Configs/disabled-capacities.txt).
+    - Fill [.\Configs\enabled-capabilities.txt](../Configs/enabled-capabilities.txt) and [.\Configs\disabled-capabilities.txt](../Configs/disabled-capabilities.txt).
 10. Get Features list using [Get-WindowsOptionalFeature](https://learn.microsoft.com/en-us/powershell/module/dism/get-windowsoptionalfeature?view=windowsserver2025-ps):
     ```powershell
     Get-WindowsOptionalFeature -Path C:\Mount
